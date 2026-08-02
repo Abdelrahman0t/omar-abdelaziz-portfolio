@@ -33,8 +33,8 @@ export function Faq() {
     {
       q: t("How can I contact Eng. Omar Abdelaziz?", "كيف يمكنني التواصل مع المهندس عمر عبد العزيز؟"),
       a: t(
-        "You can reach us directly via WhatsApp at 01003005301, call 03 3099929, or visit our Facebook page 'Omar interior design'.",
-        "يمكنكم التواصل مباشرة عبر الواتساب أو الاتصال على 01003005301 أو 03 3099929، أو عبر صفحة الفيس بوك (Omar interior design)."
+        "You can reach us directly via WhatsApp at 01003005301, or visit our Facebook page 'Omar interior design'.",
+        "يمكنكم التواصل مباشرة عبر الواتساب أو الاتصال على 01003005301  أو عبر صفحة الفيس بوك (Omar interior design)."
       ),
     },
   ];
