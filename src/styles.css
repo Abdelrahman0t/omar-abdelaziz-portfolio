@@ -1,0 +1,273 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ATELIER NORD — luxury interior design studio design system.
+ * Palette: bone (#FAF8F5), linen (#F3EFEA), ink (#1E1E1E), stone (#6A6A6A),
+ * bronze (#A67C52). All colors in oklch.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  --radius-4xl: calc(var(--radius) + 24px);
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Petit Formal Script", cursive;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-bronze: var(--bronze);
+  --color-bronze-soft: var(--bronze-soft);
+  --color-linen: var(--linen);
+  --color-clay: var(--clay);
+  --color-ink: var(--ink);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --shadow-soft: 0 24px 60px -30px oklch(0.35 0.03 60 / 0.28);
+  --shadow-lift: 0 40px 80px -36px oklch(0.35 0.03 60 / 0.35);
+  --shadow-glow: 0 18px 46px -18px oklch(0.6 0.08 62 / 0.5);
+
+  --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --radius: 1rem; /* 16px images / 24px cards via rounded-3xl */
+  --background: oklch(0.977 0.006 74);
+  --foreground: oklch(0.238 0 0);
+  --card: oklch(0.99 0.004 74);
+  --card-foreground: oklch(0.238 0 0);
+  --popover: oklch(0.99 0.004 74);
+  --popover-foreground: oklch(0.238 0 0);
+  --primary: oklch(0.238 0 0);
+  --primary-foreground: oklch(0.977 0.006 74);
+  --secondary: oklch(0.949 0.009 70);
+  --secondary-foreground: oklch(0.238 0 0);
+  --muted: oklch(0.949 0.009 70);
+  --muted-foreground: oklch(0.514 0 0);
+  --accent: oklch(0.611 0.061 62);
+  --accent-foreground: oklch(0.238 0 0);
+  --bronze: oklch(0.611 0.061 62);
+  --bronze-soft: oklch(0.79 0.038 66);
+  --linen: oklch(0.949 0.009 70);
+  --clay: oklch(0.887 0.017 68);
+  --ink: oklch(0.238 0 0);
+  --destructive: oklch(0.53 0.16 27);
+  --destructive-foreground: oklch(0.977 0.006 74);
+  --border: oklch(0.888 0.011 70);
+  --input: oklch(0.888 0.011 70);
+  --ring: oklch(0.611 0.061 62);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  html.lang-ar body,
+  html.lang-ar h1,
+  html.lang-ar h2,
+  html.lang-ar h3,
+  html.lang-ar h4,
+  html.lang-ar .font-display {
+    font-family: 'Alexandria', 'Cairo', sans-serif !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 0.98;
+  }
+
+  ::selection {
+    background: var(--bronze-soft);
+    color: var(--ink);
+  }
+}
+
+/* ---------- Editorial primitives ---------- */
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--bronze);
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.6vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+@utility body-lg {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--muted-foreground);
+  font-weight: 300;
+}
+
+@utility rule-line {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--bronze) 55%, transparent),
+    transparent
+  );
+}
+
+/* Pill buttons */
+@utility btn-bronze {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--bronze);
+  color: var(--ink);
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.5s var(--ease-luxe),
+    box-shadow 0.5s var(--ease-luxe),
+    background 0.5s var(--ease-luxe);
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+    background: color-mix(in oklab, var(--bronze) 88%, white);
+  }
+}
+
+@utility btn-outline-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--ink) 22%, transparent);
+  color: var(--ink);
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    transform 0.5s var(--ease-luxe),
+    border-color 0.5s var(--ease-luxe),
+    background 0.5s var(--ease-luxe);
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--bronze);
+    background: color-mix(in oklab, var(--bronze) 10%, transparent);
+  }
+}
+
+/* Elegant underline nav link */
+@utility nav-link {
+  position: relative;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: inherit;
+  padding-bottom: 3px;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@utility glass-card {
+  background: color-mix(in oklab, white 62%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid color-mix(in oklab, white 70%, transparent);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+@utility img-frame {
+  overflow: hidden;
+  border-radius: 1rem;
+  & img {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  &:hover img {
+    transform: scale(1.08);
+  }
+}
+
+@utility section-pad {
+  padding-top: clamp(5rem, 11vw, 11.25rem);
+  padding-bottom: clamp(5rem, 11vw, 11.25rem);
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 4.5rem);
+}
