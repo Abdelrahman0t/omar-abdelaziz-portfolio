@@ -78,7 +78,7 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <a href="#contact" target="_blank" rel="noreferrer" className="btn-bronze mt-2 w-full text-center" onClick={() => setOpen(false)}>
+          <a href="#contact" className="btn-bronze mt-2 w-full text-center" onClick={() => setOpen(false)}>
             {t("Book Consultation", "احجز استشارة")}
           </a>
         </div>
